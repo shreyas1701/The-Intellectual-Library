@@ -1,0 +1,65 @@
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/index.css" type="text/css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="/geodatasource-countryflag.css">
+    <script src="/js/geodatasource-cr.min.js"></script>
+    <!-- link to languages po files -->
+    <!--<link rel="gettext" type="application/x-po" href="languages/en/LC_MESSAGES/en.po" />-->
+    <script type="text/javascript" src="/js/Gettext.js"></script>
+
+  </head>
+
+	<% include partials/header.ejs %>
+	<% include partials/user-navigation.ejs %>
+	<% include partials/site-navigation.ejs %>
+  <body>
+  <form class="form-signin" action="/signup" method="POST">
+      <fieldset>
+        <legend>Please sign up</legend>
+        <div class="formgrid">
+          <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+          
+          <label for="inputUsername" class="sr-only">Username</label>
+          <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required>
+          
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        
+          <label for="add1" class="sr-only">Address 1</label>
+          <input type="text" id="add1" name="add1" class="form-control" placeholder="Address 1" >
+          
+          <label for="add2" class="sr-only">Address 2</label>
+          <input type="text" id="add2" name="add2" class="form-control" placeholder="Address 2">
+
+          <label for="city" class="sr-only">City</label>
+          <input type="text" id="city" name="city" class="form-control" placeholder="City">
+
+
+          <label for="zip" class="sr-only">Zip</label>
+          <input type="text" id="zip" name="zip" class="form-control" placeholder="zip">
+
+          <label class="col-sm-2 control-label">Country</label>
+          <select id="country" name="country" class="gds-cr" country-data-region-id="gds-cr-one" data-language="en"></select>
+
+          <label for="gds-cr-1" class="col-sm-2 control-label">Region</label>
+          <select name="state" id="gds-cr-one" ></select>
+
+
+          <br><br> 
+          <button class="btn btn-lg btn-default btn-block" type="submit">Sign up</button>
+        </div>
+      </fieldset>
+  </form>
+<% include partials/footer.ejs %>
+  </body>
+</html>
+
+

@@ -1,0 +1,40 @@
+<html>
+  <body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/index.css" type="text/css"/>
+  </head>
+
+	<% include partials/header.ejs %>
+	<% include partials/user-navigation.ejs %>
+	<% include partials/site-navigation.ejs %>
+
+  <div class="main">
+      <form action="/login" method="post">
+          <fieldset>
+          <legend>Welcome to Intellectual Library</legend>
+          <div class="formgrid">
+              <p> Please enter your username and password to sign in </p>
+            
+              <b><%= typeof message1!='undefined' ? message1 : '' %></b>
+              <b><%= typeof message!='undefined' ? message : '' %></b>
+
+
+
+              <label for="username" class="sr-only">Username</label>
+              <input type="text" id="username" class="form-control" name="username">
+              
+              <label for="password" class="sr-only">Password</label>
+              <input type="password" id="password" class="form-control" name="password">
+              
+          <button type="submit" class="btn btn-warning btn-lg">Login</button>
+          </div>
+              <p><a href="/signup" name='signupredirect'>Not registered? Register now</a></p>
+      </fieldset>
+          
+      </form>
+  </div>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

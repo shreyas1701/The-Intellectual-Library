@@ -1,0 +1,60 @@
+<html>
+  <body>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+    <%= title %> 
+    </title>
+    <link rel="stylesheet" href="/index.css" type="text/css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="/geodatasource-countryflag.css">
+    <script src="/js/geodatasource-cr.min.js"></script>
+    <!-- link to languages po files -->
+    <!--<link rel="gettext" type="application/x-po" href="languages/en/LC_MESSAGES/en.po" />-->
+    <script type="text/javascript" src="/js/Gettext.js"></script>
+  </head>
+
+	<% include partials/header.ejs %>
+	<% include partials/user-navigation.ejs %>
+	<% include partials/site-navigation.ejs %>
+
+    <form action="/update" method="POST">
+    <fieldset>
+    <legend> Your Profile </legend>
+    <p>Please fill all fields for proper address update</p>
+    <div class="formgrid">
+          <label for="inputEmail" class="sr-only">Email: </label>
+          <p><%= user.email %></p><br/>
+          
+          <label for="inputUsername" class="sr-only">Username: </label>
+          <p><%= user.username %></p><br/>
+        
+          <label for="add1" class="sr-only">Address 1</label>
+          <input type="text" id="add1" name="add1" class="form-control" placeholder="<%= user.address1 %>" ></input>
+          
+          <label for="add2" class="sr-only">Address 2</label>
+          <input type="text" id="add2" name="add2" class="form-control" placeholder="<%= user.address2 %>">
+
+          <label for="city" class="sr-only">City</label>
+          <input type="text" id="city" name="city" class="form-control" placeholder="<%= user.city %>">
+
+
+          <label for="zip" class="sr-only">Zip</label>
+          <input type="text" id="zip" name="zip" class="form-control"   placeholder="<%= user.zip %>">
+
+          <label class="col-sm-2 control-label">Country</label>
+          <select id="country" name="country" class="gds-cr" country-data-region-id="gds-cr-one" data-language="en" default="<%= user.city %>"></select>
+
+          <label for="gds-cr-1" class="col-sm-2 control-label">Region</label>
+          <select name="state" id="gds-cr-one" ></select>    
+
+          <button type="submit" class="btn btn-warning btn-lg">Update</button>
+  </div>
+  </fieldset>
+  </form>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

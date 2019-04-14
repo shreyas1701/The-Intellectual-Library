@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/index.css" type="text/css"/>
+    <title>Intellectual Library</title>
+</head>
+
+<body>
+<% include partials/header.ejs %>
+<% include partials/user-navigation.ejs %>
+<% include partials/site-navigation.ejs %>
+
+<section>
+    <div class="main">
+        <p>
+            Welcome <b> <%= typeof username!='undefined' ? username : '' %> </b> to Intellectual Library. It contains variety of books for intellectual minds which leads to growth
+            apparently.
+        </p>
+        <p>
+            Check out the store division for multifarious books.
+        </p>
+    </div>
+</section>
+
+<% include partials/footer.ejs %>
+</body>
+</html>

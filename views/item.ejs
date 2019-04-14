@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/index.css" type="text/css"/>
+	<title>Intellectual Library</title>
+</head>
+
+<body>
+<% include partials/header.ejs %>
+<% include partials/user-navigation.ejs %>
+<% include partials/site-navigation.ejs %>
+
+<section>
+	<div class="main">
+		<article class="productArticle">
+			<table>
+			<tr>
+				<td><img src= "<%= item.imageUrl %>"  alt="book cover" height="200" width="170"/></td>
+				<td class="tabelText">
+					<h2><%= item.itemName %></h2>
+					<h3> <%= item.subCategory %> </h3>
+					<h3> Rating <%= item.rating %> </h3>
+					<p>&#9733;&#9733;&#9733;&#9733;&#x2606;</p>
+				</td>
+			 </tr>
+			<tr>
+				<td colspan="2">
+					<form action="/savemyitems/<%=item.itemCode%>" method='GET'>
+						<button id='save' type=submit>Save it
+						</button>
+					</form>
+					<form>
+						<button type=submit formaction="/feedback" >Rate it
+						</button>
+					</form>
+				</td>
+			</tr>
+			</table>
+			<div>
+				<h4>Description</h4>
+				<p><%= item.Description %></p>
+				<h4>Write your own review</h4>
+				<form action='/savefeeback', method='POST'>
+				<textarea rows="4" cols="50" name= "feedback" placeholder= "Write your experience about this product...">
+				</textarea>
+				<button type="submit" value="Submit"> Submit it</button>
+				</form>
+			</div>
+
+		</article>
+	</div>
+</section>
+<% include partials/footer.ejs %>
+
+</body>
+</html>

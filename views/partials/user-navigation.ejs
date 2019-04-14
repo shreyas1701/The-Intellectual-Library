@@ -1,0 +1,14 @@
+<nav id="horizontalNavigation">
+    <div class="topnav">
+        <!--<ul id="horizontal"> -->
+        <% if (username) { %>
+         <a href="/logout">Log Out</a>
+         <a href="/myitems">My Books</a>
+         <a href="/myprofile"> Profile</a>
+        <% } else { %> 
+        <a href="/login">Log In</a>
+        <a href="/signup">Register</a>
+           <% } %>
+        <!-- </ul> -->
+    </div>
+</nav>

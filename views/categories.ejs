@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/index.css" type="text/css"/>
+	<title>Intellectual Library</title>
+</head>
+<body>
+
+<% include partials/header.ejs %>
+<% include partials/user-navigation.ejs %>
+<% include partials/site-navigation.ejs %>
+
+<section>
+	<div class="main">
+		<h2>Categories</h2>
+		<ul>
+		<ol> <%=cat1[0] %></ol>
+			<% for (var i = 0; i < data1.length; i++) {
+				if (data1[i].subCategory  === cat1[0]){%>
+				<li> <a href="/categories/<%=cat1[0]%>/item/<%=data1[i].itemCode%>"><%= data1[i].itemName %></a> </li>
+			<%}}%>
+		<br>	
+		<ol> <%=cat1[1] %></ol>
+			<% for (var i = 0; i < data1.length; i++) {
+				if (data1[i].subCategory  === cat1[1]){%>
+				<li> <a href="/categories/<%=cat1[1]%>/item/<%=data1[i].itemCode%>"><%= data1[i].itemName %></a> </li>
+			<%}}%>
+
+
+		</ul>
+	</div>
+</section>
+<% include partials/footer.ejs %>
+</body>
+</html>	

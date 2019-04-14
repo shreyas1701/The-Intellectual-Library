@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/index.css" type="text/css"/>
+	<title>Intellectual Libray</title>
+</head>
+<body>
+
+<% include partials/header.ejs %>
+
+<section>
+	<% include partials/user-navigation.ejs %>
+	<% include partials/site-navigation.ejs %>
+	<div class="main">
+
+		<article>
+			<h2>My saved items</h2>
+			<table>
+				<tr>
+					<th>Item-Name</th>
+					<th>Category</th>
+					<th>Rating</th>
+
+				</tr>
+				<%if (bookdet.length !=0)
+				{
+				 for(var i=0; i < bookdet.length; i++) { %>
+				<tr>
+				<td><%- bookdet[i].itemName %> </td>
+				<td><%- bookdet[i].subCategory %></td>
+				<td><%- bookdet[i].rating %></td>
+				<td>
+				<form action="/deletemyitems/<%=bookdet[i].itemCode%>" method='GET'>
+				<button type=submit >Delete</button>
+				</form>
+				</td>
+				</tr>
+				<% }
+				}else{ %>
+					  <p>No saved items!</p>
+				<% }	%>
+			</table>
+			<br>
+		</article>
+</div>
+<section>
+</body>
+</html>
+
